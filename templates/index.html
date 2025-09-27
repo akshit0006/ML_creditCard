@@ -1,0 +1,675 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>CreditCard AI - Prediction Engine</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="data:image/png;base64,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" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background:
+                radial-gradient(circle at 20% 80%, rgba(64, 64, 64, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(128, 128, 128, 0.1) 0%, transparent 50%),
+                linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #0d0d0d 100%);
+            color: #e8e8e8;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.02) 50%, transparent 100%);
+            animation: shimmer 8s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { transform: translateX(-100%); }
+            50% { transform: translateX(100%); }
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(8, 8, 8, 0.95);
+            backdrop-filter: blur(30px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 2rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .brand-logo {
+            font-size: 2.2rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 50%, #606060 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            position: relative;
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        .brand-logo::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent 0%, #808080 50%, transparent 100%);
+            animation: glow 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { filter: brightness(1) contrast(1); }
+            50% { filter: brightness(1.3) contrast(1.1); }
+        }
+
+        @keyframes glow {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; box-shadow: 0 0 20px rgba(128, 128, 128, 0.5); }
+        }
+
+        /* Main Content */
+        .main-container {
+            flex: 1;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 10rem 2rem 8rem;
+            width: 100%;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-section {
+            text-align: center;
+            margin-bottom: 5rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-section h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, #ffffff 0%, #c0c0c0 40%, #808080 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1.5rem;
+            letter-spacing: -2px;
+            line-height: 1.1;
+            position: relative;
+        }
+
+        .hero-section p {
+            color: #999999;
+            font-size: 1.4rem;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+            margin-bottom: 2rem;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 4rem;
+        }
+
+        /* Card Styles */
+        .card {
+            background:
+                linear-gradient(135deg, rgba(20, 20, 20, 0.95) 0%, rgba(10, 10, 10, 0.98) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            padding: 3rem;
+            backdrop-filter: blur(20px);
+            box-shadow:
+                0 25px 80px rgba(0, 0, 0, 0.6),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.2) 50%, transparent 100%);
+        }
+
+        .card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow:
+                0 40px 120px rgba(0, 0, 0, 0.8),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .card-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 2.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            position: relative;
+        }
+
+        .card-title::before {
+            content: '';
+            width: 6px;
+            height: 30px;
+            background: linear-gradient(180deg, #ffffff 0%, #808080 50%, #404040 100%);
+            border-radius: 3px;
+            box-shadow: 0 0 10px rgba(128, 128, 128, 0.3);
+        }
+
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 1.5rem 2rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 2px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            color: #ffffff;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            position: relative;
+        }
+
+        .form-control:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow:
+                0 0 30px rgba(255, 255, 255, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            transform: translateY(-2px);
+        }
+
+        .form-control::placeholder {
+            color: #666666;
+            font-weight: 300;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 1.5rem 2rem;
+            border: none;
+            border-radius: 16px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.1) 50%, transparent 100%);
+            transition: left 0.5s ease;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 50%, #0a0a0a 100%);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow:
+                0 10px 30px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #404040 0%, #2a2a2a 50%, #1a1a1a 100%);
+            transform: translateY(-4px) scale(1.02);
+            box-shadow:
+                0 20px 50px rgba(0, 0, 0, 0.7),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.25);
+        }
+
+        .btn-primary:active {
+            transform: translateY(-2px) scale(1.01);
+        }
+
+        .divider {
+            text-align: center;
+            margin: 2rem 0;
+            color: #666666;
+            font-weight: 600;
+            position: relative;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 40%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.1) 50%, transparent 100%);
+        }
+
+        .divider::before { left: 0; }
+        .divider::after { right: 0; }
+
+        /* Results Section */
+        .result-box {
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 20px;
+            padding: 2.5rem;
+            min-height: 350px;
+            max-height: 450px;
+            overflow-y: auto;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+        }
+
+        .result-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.1) 50%, transparent 100%);
+        }
+
+        .result-box::-webkit-scrollbar { width: 10px; }
+        .result-box::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 5px;
+        }
+        .result-box::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%);
+            border-radius: 5px;
+        }
+        .result-box::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.2) 100%);
+        }
+
+        .result-label {
+            color: #999999;
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+        }
+
+        .json-result {
+            color: #c0c0c0;
+            font-family: 'Courier New', monospace;
+            line-height: 1.8;
+        }
+
+        .json-result pre {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .json-result p {
+            color: #ffffff;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(8, 8, 8, 0.95);
+            backdrop-filter: blur(30px);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 3rem 0;
+            position: relative;
+            z-index: 100;
+            margin-top: auto;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .footer-brand {
+            font-size: 2.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 50%, #606060 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-brand::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent 0%, #808080 50%, transparent 100%);
+            animation: footerGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes footerGlow {
+            0%, 100% { opacity: 0.7; }
+            50% { opacity: 1; box-shadow: 0 0 25px rgba(128, 128, 128, 0.6); }
+        }
+
+        .footer-subtitle {
+            color: #999999;
+            font-size: 1.1rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Loading Spinner */
+        #loading {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .loader {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            border-top: 4px solid #808080;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            position: relative;
+        }
+
+        .loader::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 30px;
+            height: 30px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-top: 2px solid #ffffff;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            animation: spin 0.5s linear infinite reverse;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .card {
+                padding: 2rem;
+            }
+
+            .main-container {
+                padding: 8rem 1rem 6rem;
+            }
+
+            .hero-section {
+                margin-bottom: 3rem;
+            }
+
+            .footer-brand {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .nav-container {
+                padding: 0 1rem;
+            }
+
+            .brand-logo {
+                font-size: 1.8rem;
+            }
+
+            .card {
+                padding: 1.5rem;
+            }
+
+            .footer-brand {
+                font-size: 1.8rem;
+            }
+
+            .footer-subtitle {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="brand-logo">CreditCard AI</div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <div class="hero-section">
+            <h1>AI Prediction Engine</h1>
+            <p>Next-Generation Credit Card Risk Assessment</p>
+        </div>
+
+        <div class="content-grid">
+            <!-- Input Card -->
+            <div class="card">
+                <h2 class="card-title">Data Input</h2>
+                <form method="post" id="datafetch_form" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <input type="text" name="csvfile" id="csvfile" class="form-control"
+                               placeholder="Enter absolute file path..." required>
+                    </div>
+                    <button type="button" class="btn btn-primary" id="customfile">
+                        Custom File Predict
+                    </button>
+
+                    <div class="divider">OR</div>
+
+                    <button type="button" class="btn btn-primary" id="defaultfile" data-path="Prediction_Batch_files">
+                        Default File Predict
+                    </button>
+                </form>
+            </div>
+
+            <!-- Results Card -->
+            <div class="card">
+                <h2 class="card-title">Prediction Results</h2>
+                <div class="result-box">
+                    <div class="result-label">Output Console</div>
+                    <div class="json-result">
+                        <p style="color: #666666;">Awaiting prediction request...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">AKSHIT_ML_PROJECT</div>
+            <div class="footer-subtitle">Machine Learning Credit Card Default Prediction System</div>
+        </div>
+    </footer>
+
+    <!-- Loading Overlay -->
+    <div id="loading">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        // Wait for DOM to be ready
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hide loading overlay initially
+            document.getElementById('loading').style.display = 'none';
+
+            // Custom file prediction
+            document.getElementById('customfile').addEventListener('click', function(e) {
+                e.preventDefault();
+                const loading = document.getElementById('loading');
+                const csvFile = document.getElementById('csvfile');
+                const path = csvFile.value.trim();
+
+                if (!path) {
+                    alert("Please enter a file path");
+                    return;
+                }
+
+                loading.style.display = 'flex';
+
+                // Using fetch API instead of jQuery for better compatibility
+                fetch('/predict', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: 'filepath=' + encodeURIComponent(path)
+                })
+                .then(response => response.text())
+                .then(data => {
+                    document.querySelector('.json-result').innerHTML =
+                        '<p>Prediction completed successfully!</p>' +
+                        '<p style="color: #808080;">Output saved to: Prediction_Output_File/Predictions.csv</p>' +
+                        '<pre>' + data + '</pre>';
+                    loading.style.display = 'none';
+                })
+                .catch(error => {
+                    document.querySelector('.json-result').innerHTML =
+                        '<p style="color: #ff4444;">Error: Prediction failed. Please check your input.</p>';
+                    loading.style.display = 'none';
+                    console.error('Error:', error);
+                });
+            });
+
+            // Default file prediction
+            document.getElementById('defaultfile').addEventListener('click', function(e) {
+                e.preventDefault();
+                const loading = document.getElementById('loading');
+                const path = this.getAttribute('data-path');
+
+                loading.style.display = 'flex';
+
+                fetch('/predict', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: 'filepath=' + encodeURIComponent(path)
+                })
+                .then(response => response.text())
+                .then(data => {
+                    document.querySelector('.json-result').innerHTML =
+                        '<p>Prediction completed successfully!</p>' +
+                        '<p style="color: #808080;">Output saved to: Prediction_Output_File/Predictions.csv</p>' +
+                        '<pre>' + data + '</pre>';
+                    loading.style.display = 'none';
+                })
+                .catch(error => {
+                    document.querySelector('.json-result').innerHTML =
+                        '<p style="color: #ff4444;">Error: Prediction failed. Please check your input.</p>';
+                    loading.style.display = 'none';
+                    console.error('Error:', error);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
