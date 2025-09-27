@@ -87,6 +87,6 @@ def trainRouteClient():
         return Response("Error Occurred! %s" % e)
     return Response("Training successfull!!")
 
-port = int(os.getenv("PORT",5001))
+port = int(os.getenv("PORT", 10000))  # Changed from 5001 to 10000
 if __name__ == "__main__":
-    app.run(port=port,debug=True)
+    app.run(host='0.0.0.0', port=port, debug=False)  # Added host='0.0.0.0'
