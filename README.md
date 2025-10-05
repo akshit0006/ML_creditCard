@@ -11,8 +11,4 @@ Tech: Python, Flask, XGBoost, Scikit-learn, Render
  Features
 - Real-time predictions • Batch processing • Web interface • API endpoints
 
- Quick Start
-```bash
-git clone [your-repo]
-pip install -r requirements.txt
-python main.py
+
